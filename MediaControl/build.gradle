@@ -1,0 +1,40 @@
+apply plugin: 'com.android.library'
+apply plugin: 'com.novoda.bintray-release'
+
+publish {
+    userOrg = 'cherevir'//bintray.com用户名
+    repoName = 'maven'//远程仓库名字，默认是上传到maven
+    groupId = 'com.cere'//jcenter上的路径
+    artifactId = 'MediaControl'//项目名称
+    publishVersion = '1.0.2'//版本号
+    desc = 'This is Media Control'//描述，不重要
+    website = 'https://chenjinag.top'//网站，最好有，不重要
+    //gradlew clean build bintrayUpload -PbintrayUser=cherevir -PbintrayKey=8a091c6493df86bfdffa967e341b09377cd02f89 -PdryRun=false
+}
+
+android {
+    compileSdkVersion 28
+    defaultConfig {
+        minSdkVersion 23
+        targetSdkVersion 28
+        versionCode 1
+        versionName "1.0"
+
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+
+}
+
+dependencies {
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test:runner:1.1.0-alpha3'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.1.0-alpha3'
+}
