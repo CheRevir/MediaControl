@@ -13,10 +13,12 @@ import java.util.List;
 public class PlayControlled {
     private Binder mBinder;
     private RemoteCallbackList<IPlayCallback> mCallbackList;
+    private PlayCallback mPlayCallback;
 
     public PlayControlled() {
         mBinder = new Binder();
         mCallbackList = new RemoteCallbackList<>();
+        mPlayCallback = new PlayCallback();
     }
 
     public void onPlay() {
@@ -61,11 +63,11 @@ public class PlayControlled {
         return mBinder;
     }
 
-    public Callback getCallback() {
-        return new Callback();
+    public PlayCallback getCallback() {
+        return mPlayCallback;
     }
 
-    public class Callback {
+    public class PlayCallback {
         public void setPlay(boolean isPlay) {
             int num = mCallbackList.beginBroadcast();
             for (int n = 0; n < num; n++) {
@@ -161,7 +163,7 @@ public class PlayControlled {
 
         @Override
         public void setPlayList(List<MediaMetedata> list) throws RemoteException {
-            PlayControlled.this.setPlayList(new ArrayList<>(list));
+            PlayControlled.this.setPlayList(new ArrayList<MediaMetedata>(list));
         }
 
         @Override

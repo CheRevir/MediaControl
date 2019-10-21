@@ -56,7 +56,7 @@ public class MainActivity extends AppCompatActivity implements PlayControl.OnCon
     @Override
     public void onConnected(boolean isConnected) {
         if (isConnected) {
-            mPlayControl.registerCallback(mPlayCallback);
+            mPlayControl.registerCallback(mPlayCallback.getCallback());
             new MainThread().start();
             mPlayControl.play();
             List<MediaMetedata> list = new ArrayList<>();

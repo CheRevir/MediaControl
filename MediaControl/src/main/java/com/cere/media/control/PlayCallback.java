@@ -6,7 +6,13 @@ import android.os.RemoteException;
 /**
  * Created by CeRe on 2018/6/19.
  */
-public class PlayCallback extends IPlayCallback.Stub {
+public class PlayCallback {
+    private Callback mCallback;
+
+    public PlayCallback(){
+        mCallback = new Callback();
+    }
+
     public void onPlay(boolean isPlay) {
     }
 
@@ -22,28 +28,34 @@ public class PlayCallback extends IPlayCallback.Stub {
     public void onAction(String action, Bundle bundle) {
     }
 
-    @Override
-    public void setPlay(boolean isPlay) throws RemoteException {
-        this.onPlay(isPlay);
+    public Callback getCallback() {
+        return mCallback;
     }
 
-    @Override
-    public void setData(String path) throws RemoteException {
-        this.onData(path);
-    }
+    private class Callback extends IPlayCallback.Stub {
+        @Override
+        public void setPlay(boolean isPlay) throws RemoteException {
+            PlayCallback.this.onPlay(isPlay);
+        }
 
-    @Override
-    public void setMaxTime(int time) throws RemoteException {
-        this.onMaxTime(time);
-    }
+        @Override
+        public void setData(String path) throws RemoteException {
+            PlayCallback.this.onData(path);
+        }
 
-    @Override
-    public void setNowTime(int time) throws RemoteException {
-        this.onNowTime(time);
-    }
+        @Override
+        public void setMaxTime(int time) throws RemoteException {
+            PlayCallback.this.onMaxTime(time);
+        }
 
-    @Override
-    public void setAction(String action, Bundle bundle) throws RemoteException {
-        this.setAction(action, bundle);
+        @Override
+        public void setNowTime(int time) throws RemoteException {
+            PlayCallback.this.onNowTime(time);
+        }
+
+        @Override
+        public void setAction(String action, Bundle bundle) throws RemoteException {
+            PlayCallback.this.onAction(action, bundle);
+        }
     }
 }
