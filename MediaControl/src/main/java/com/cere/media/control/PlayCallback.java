@@ -13,19 +13,19 @@ public class PlayCallback {
         mCallback = new Callback();
     }
 
-    public void onPlay(boolean isPlay) {
+    protected void onPlay(boolean isPlay) {
     }
 
-    public void onData(String path) {
+    protected void onData(String path) {
     }
 
-    public void onMaxTime(int time) {
+    protected void onMaxTime(int time) {
     }
 
-    public void onNowTime(int time) {
+    protected void onNowTime(int time) {
     }
 
-    public void onAction(String action, Bundle bundle) {
+    protected void onAction(String action, Bundle bundle) {
     }
 
     public Callback getCallback() {

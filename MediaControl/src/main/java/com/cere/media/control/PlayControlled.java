@@ -21,34 +21,34 @@ public class PlayControlled {
         mPlayCallback = new PlayCallback();
     }
 
-    public void onPlay() {
+    protected void onPlay() {
     }
 
-    public void onPause() {
+    protected void onPause() {
     }
 
-    public void onPrevious() {
+    protected void onPrevious() {
     }
 
-    public void onNext() {
+    protected void onNext() {
     }
 
-    public void seekTo(long progress) {
+    protected void seekTo(long progress) {
     }
 
-    public void setData(String path) {
+    protected void setData(String path) {
     }
 
-    public void setPlayList(ArrayList<MediaMetedata> list) {
+    protected void setPlayList(ArrayList<MediaMetedata> list) {
     }
 
-    public void setRepeatMode(int repeatMode) {
+    protected void setRepeatMode(int repeatMode) {
     }
 
-    public void setShuffleModeEnabled(boolean shuffleMode) {
+    protected void setShuffleModeEnabled(boolean shuffleMode) {
     }
 
-    public void sendAction(String action, Bundle bundle) {
+    protected void sendAction(String action, Bundle bundle) {
     }
 
     private void registerCallback(IPlayCallback callback) {

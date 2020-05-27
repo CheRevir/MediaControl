@@ -33,7 +33,7 @@ public class Activity2 extends AppCompatActivity implements PlayControl.OnConnec
     @Override
     public void onConnected(boolean isConnected) {
         if (isConnected) {
-            mPlayControl.registerCallback(mPlayCallback);
+            mPlayControl.registerCallback(mPlayCallback.getCallback());
             mPlayControl.play();
         }
         Log.e(TAG, "activity2 connected:" + String.valueOf(isConnected));
@@ -50,7 +50,7 @@ public class Activity2 extends AppCompatActivity implements PlayControl.OnConnec
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mPlayControl.unregisterCallback(mPlayCallback);
+        mPlayControl.unregisterCallback(mPlayCallback.getCallback());
         mPlayControl.disconnect();
         Log.e(TAG, "activity2 destroy");
     }
