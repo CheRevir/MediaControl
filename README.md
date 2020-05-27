@@ -4,7 +4,5 @@ Using Gradle:
 
 ```
 //gradle
-compile ('com.alibaba.android:ultraviewpager:1.0.7.7@aar') {
-	transitive = true
-}
+implementation 'com.cere:MediaControl:1.0.3'
 ```
